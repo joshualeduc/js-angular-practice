@@ -7,20 +7,20 @@ import { Component, HostListener } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Mouse Tracking';
-  mousePosition = {};
-  click = '';
-  key = '';
-  mouseOver(e){
+  title: string = 'Mouse Tracking';
+  mousePosition: KeyboardEvent;
+  click:string;
+  key: string;
+  mouseOver(e): void {
     this.mousePosition = e;
   }
-  leaveCanvas(){
-    this.mousePosition = {};
+  leaveCanvas(): void {
+    this.mousePosition = null;
   }
-  leftClick(e){
+  leftClick(e): void {
     this.click = 'left click';
   }
-  rightClick(e){
+  rightClick(e): void {
     e.preventDefault();
     this.click = 'right click';
   }
