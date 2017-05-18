@@ -24,7 +24,7 @@ export class AppComponent {
     e.preventDefault();
     this.click = 'right click';
   }
-  @HostListener('document:keypress', ['$event'])
+  @HostListener('keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent){
     this.key = event.key;
   }
