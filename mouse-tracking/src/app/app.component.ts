@@ -3,7 +3,7 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: ['.container {margin: 75px;}']
 })
 
 export class AppComponent {
@@ -18,6 +18,7 @@ export class AppComponent {
     this.mousePosition = null;
   }
   leftClick(e): void {
+    e.preventDefault();
     this.click = 'left click';
   }
   rightClick(e): void {
