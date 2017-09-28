@@ -5,11 +5,11 @@
 
     <div class="panel-body" *ngIf="product">
         <div class="wizard">
-          <a [routerLink]="['info']">
-            Basic Information
+          <a [routerLink]="['info']" routerLinkActive="active">
+            Basic Information <span [ngClass]="{'glyphicon glyphicon-exclamation-sign': !isValid('info')}"></span>
           </a>
-          <a [routerLink]="['tags']">
-            Search Tags
+          <a [routerLink]="['tags']" routerLinkActive="active">
+            Search Tags <span [ngClass]="{'glyphicon glyphicon-exclamation-sign': !isValid('tags')}"></span>
           </a>
         </div>
 
@@ -21,7 +21,7 @@
       <div class="col-md-6 col-md-offset-2">
         <span>
           <button class="btn btn-primary"
-                  type="button" 
+                  type="button"
                   style="width:80px;margin-right:10px"
                   (click)="saveProduct()"
                   [disabled]="!isValid()">
@@ -29,7 +29,7 @@
           </button>
         </span>
         <span>
-          <a [routerLink]="[/'products']" class="btn btn-default">
+          <a [routerLink]="['/products']" class="btn btn-default">
             Cancel
           </a>
         </span>
