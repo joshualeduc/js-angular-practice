@@ -62,6 +62,6 @@ export class CreateSessionComponent implements OnInit {
 	}
 
 	cance() {
-		this.cancelAddSession.emit()
+		this.cancelAddSession.emit();
 	}
 }
