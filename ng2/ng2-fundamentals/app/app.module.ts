@@ -13,7 +13,7 @@ import { EventsListComponent,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
-  UpvoteComponet,
+  UpvoteComponent,
   VoterService,
   LocationValidator,
   DurationPipe } from './events/index';

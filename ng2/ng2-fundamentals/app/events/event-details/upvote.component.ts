@@ -16,7 +16,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   `,
   styleUrls:['app/events/event-details/upvote.component.css']
 })
-export class UpvoteComponet {
+export class UpvoteComponent {
   @Input() count: number;
   @Input() set voted(val){
     this.iconColor = val ? 'red' : 'white';
