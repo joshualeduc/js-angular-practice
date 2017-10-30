@@ -16,7 +16,8 @@ import { EventService } from '../events/index';
 export class NavBarComponent {
   searchTerm: string='';
   foundSessions: ISession[];
-  constructor(private auth: AuthService, private eventService: EventService) {
+  // if a method is being used in the template, it must be marked public for aot compiler
+  constructor(public auth: AuthService, private eventService: EventService) {
 
   }
 

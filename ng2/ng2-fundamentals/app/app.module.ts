@@ -1,3 +1,4 @@
+import './rxjs-extensions';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -29,8 +30,8 @@ import { Error404Component } from './errors/404.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 
-declare let toastr : Toastr;
-declare let jQuery : Object;
+let toastr : Toastr = window['toastr'];
+let jQuery : Object = window['$'];
 
 @NgModule({
   imports: [

@@ -1,5 +1,6 @@
 <h1>New Event</h1>
 <hr>
+<!-- for aot compiler, we need to use newEventForm.form.get('name') instead of .controls.name -->
 <div class="col-md-6">
   <form #newEventForm="ngForm" (ngSubmit)="saveEvent(newEventForm.value)" autocomplete="off" novalidate>
     <div class="form-group" [ngClass]="{'error': newEventForm.controls.name?.invalid && newEventForm.controls.name?.touched}">
