@@ -23,7 +23,7 @@ function PlayerPreview(props) {
   )
 }
 
-PlayerPreview.propTyles = {
+PlayerPreview.propTypes = {
   avatar: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
