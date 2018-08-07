@@ -105,12 +105,6 @@ class Battle extends React.Component {
     this.setState(() => ({
       [id + 'Name']: username,
       [id + 'Image']: `https://github.com/${username}.png?size=200`
-
-      // es6 computed property name
-      // var newState = {};
-      // newState[id + 'Name'] = username;
-      // newState[id + 'Image'] = 'https://github.com/' + username + '.png?size=200';
-      // return newState;
     }));
   }
 
