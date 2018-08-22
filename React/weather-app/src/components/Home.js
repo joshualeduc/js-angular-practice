@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
+import "./Home.css"
 
-export default class Home extends Component {
+class Home extends Component {
 
   render() {
     return (
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
+      <div className="main-body">
+        <h1>Enter a City and State</h1>
+        <input type="text"/>
+        <button className="button">Click Me</button>
+      </div>
     )
   }
 }
+
+export default Home
