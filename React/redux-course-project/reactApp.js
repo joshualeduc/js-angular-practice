@@ -4,7 +4,7 @@ function List (props) {
     {props.items.map((item) => (
       <li key={item.id}>
         <span
-        onClick={() => props.toggle && props.toggle(item)}
+        onClick={() => props.toggle && props.toggle(item.id)}
         style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
           {item.name}
         </span>
@@ -20,21 +20,19 @@ class Todos extends React.Component {
   addItem = (e) => {
     e.preventDefault()
     const name = this.input.value
-    this.input.value = ''
 
-    this.props.store.dispatch(addTodoAction({
-      id: generateId(),
+    this.props.store.dispatch(handleAddTodo(
       name,
-      complete: false
-    }))
+      () => this.input.value = ''
+    ))
   }
 
   removeItem = (todo) => {
-    this.props.store.dispatch(removeTodoAction(todo.id))
+    this.props.store.dispatch(handleDeleteTodo(todo))      
   }
 
-  toggleItem = (todo) => {
-    this.props.store.dispatch(toggleTodoAction(todo.id))
+  toggleItem = (id) => {
+    this.props.store.dispatch(handleToggleTodo(id))
   }
 
   render() {
@@ -62,17 +60,15 @@ class Goals extends React.Component {
   addItem = (e) => {
     e.preventDefault()
     const name = this.input.value
-    this.input.value = ''
-
-    this.props.store.dispatch(addGoalAction({
-      id: generateId(),
+    
+    this.props.store.dispatch(handleAddGoal(
       name,
-      complete: false
-    }))
+      () => this.input.value = ''
+    ))
   }
 
   removeItem = (goal) => {
-    this.props.store.dispatch(removeGoalAction(goal.id))
+    this.props.store.dispatch(handleDeleteGoal(goal))
   }
 
   render() {
@@ -98,11 +94,17 @@ class App extends React.Component {
   componentDidMount () {
     const { store } = this.props
 
+    store.dispatch(handleInit())
     store.subscribe(() => this.forceUpdate()) //anti pattern, but useful since we don't have a state
   }
   render() {
     const { store } = this.props
-    const { todos, goals } = this.props.store.getState()
+    const { todos, goals, loading } = this.props.store.getState()
+
+    if (loading === true) {
+      return <h1>Loading</h1>
+    }
+
     return (
       <div>
         <Todos todos={todos} store={store} />
