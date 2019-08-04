@@ -1,2 +1,2 @@
-# JavascriptPractice
+# Javascript Angular Practice
 
